@@ -1,0 +1,33 @@
+databaseType = "PostgreSql"
+id = "90fec290-4bb6-42a0-ab90-5a453887650a"
+name = "EarshotDB"
+
+[flyway]
+locations = [ "filesystem:migrations" ]
+mixed = true
+outOfOrder = true
+validateMigrationNaming = true
+
+  [flyway.check]
+  majorTolerance = 0
+
+[flywayDesktop]
+developmentEnvironment = "development"
+schemaModel = "schema-model"
+shadowEnvironment = "shadow"
+
+[redgateCompare]
+filterFile = "filter.rgf"
+
+[redgateCompare.postgresql.options.ignores]
+ignoreNewlinesInTextObjects = "off"
+
+[environments.earshotDB]
+url = "jdbc:postgresql://localhost:5432/earshot"
+schemas = [
+  "earshot_user",
+  "earshot_artist",
+  "earshot_venue",
+  "earshot_follow"
+]
+displayName = "earshotDB"
